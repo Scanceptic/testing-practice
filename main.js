@@ -47,4 +47,27 @@ function caesarCipher(string, shiftfactor) {
 		.join("");
 }
 
-module.exports = { capitalize, reverseString, calculator, caesarCipher };
+function analyzeArray(array) {
+	let min = array[0];
+	let max = array[0];
+	let length = array.length;
+	let total = 0;
+	for (let i = 0; i < length; i++) {
+		let num = array[i];
+		if (num > max) max = num;
+		if (num < min) min = num;
+		total += num;
+	}
+	let average = Math.round(total / length);
+	const object = { average, min, max, length };
+	console.log(object);
+	return object;
+}
+
+module.exports = {
+	capitalize,
+	reverseString,
+	calculator,
+	caesarCipher,
+	analyzeArray,
+};

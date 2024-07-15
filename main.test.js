@@ -3,6 +3,7 @@ const {
 	reverseString,
 	calculator,
 	caesarCipher,
+	analyzeArray,
 } = require("./main.js");
 
 test("Takes in string avocadoes and makes first character capitalized", () => {
@@ -45,4 +46,13 @@ test("Takes in caesphar cipher and returns punctuation correctly", () => {
 
 test("Takes in caesphar cipher and returns letters correctly wrapped", () => {
 	expect(caesarCipher("Zzxc", 10)).toBe("Jjhm");
+});
+
+test("Analyze array takes in an array of numbers [4,76,5,1,5,70,-5,23] and returns avg,min,max,length", () => {
+	expect(analyzeArray([4, 76, 5, 1, 5, 70, -5, 23])).toEqual({
+		average: 22,
+		min: -5,
+		max: 76,
+		length: 8,
+	});
 });
