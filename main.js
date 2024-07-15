@@ -24,4 +24,27 @@ const calculator = {
 	},
 };
 
-module.exports = { capitalize, reverseString, calculator };
+function caesarCipher(string, shiftfactor) {
+	function shiftChar(char, shiftfactor) {
+		const isUpperCase = char >= "A" && char <= "Z";
+		const isLowerCase = char >= "a" && char <= "z";
+
+		if (!isUpperCase && !isLowerCase) {
+			return char;
+		}
+
+		const base = isUpperCase ? "A".charCodeAt(0) : "a".charCodeAt(0);
+		const charCode = char.charCodeAt(0);
+		const newCharCode =
+			((((charCode - base + shiftfactor) % 26) + 26) % 26) + base;
+
+		return String.fromCharCode(newCharCode);
+	}
+
+	return string
+		.split("")
+		.map((char) => shiftChar(char, shiftfactor))
+		.join("");
+}
+
+module.exports = { capitalize, reverseString, calculator, caesarCipher };
